@@ -1,5 +1,6 @@
 import Carousel from 'react-material-ui-carousel';
 import CarouselChart from './CarouselChart';
+import Contents from './Contents';
 
 const Chart = (props) => {
   const items = [
@@ -24,15 +25,18 @@ const Chart = (props) => {
   ]
 
   return (
-    <Carousel
-      sx={{ mt: 20 }}
-      autoPlay={false}
-      swipe={true}
-    >
-      {
-        items.map((item, i) => <CarouselChart key={i} item={item} />)
-      }
-    </Carousel>
+    <>
+      <Carousel
+        sx={{ mt: 13 }}
+        autoPlay={false}
+        swipe={true}
+      >
+        {
+          items.map((item, i) => <CarouselChart key={i} item={item} />)
+        }
+      </Carousel>
+      <Contents />
+    </>
   )
 };
 
