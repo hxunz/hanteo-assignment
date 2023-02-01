@@ -23,16 +23,16 @@ const Swiper = ({ children }: PropsWithChildren) => {
   const onTouchEnd: TouchEventHandler<HTMLElement> = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    if (isLeftSwipe || isRightSwipe) {
-      if (currentPageIndex === 0 && isRightSwipe) {
+    const leftSwipe = distance > minSwipeDistance;
+    const rightSwipe = distance < -minSwipeDistance;
+    if (leftSwipe || rightSwipe) {
+      if (currentPageIndex === 0 && rightSwipe) {
         return navigate(`${routes[currentPageIndex + 1].path}`)
       }
-      if (currentPageIndex === routes.length - 1 && isLeftSwipe) {
+      if (currentPageIndex === routes.length - 1 && leftSwipe) {
         return navigate(`${routes[currentPageIndex - 1].path}`)
       }
-      return isLeftSwipe ? navigate(`${routes[currentPageIndex - 1].path}`) : navigate(`${routes[currentPageIndex + 1].path}`)
+      return leftSwipe ? navigate(`${routes[currentPageIndex - 1].path}`) : navigate(`${routes[currentPageIndex + 1].path}`)
     }
   };
 
