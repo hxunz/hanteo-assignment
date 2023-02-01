@@ -26,8 +26,12 @@ const Swiper = ({ children }: PropsWithChildren) => {
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
     if (isLeftSwipe || isRightSwipe) {
-      //TODO: 인덱스 0이거나 마지막일떄 페이지 이동하는거 수정하기
-      if (currentPageIndex === 0 || currentPageIndex === routes.length - 1) return;
+      if (currentPageIndex === 0 && isRightSwipe) {
+        return navigate(`${routes[currentPageIndex + 1].path}`)
+      }
+      if (currentPageIndex === routes.length - 1 && isLeftSwipe) {
+        return navigate(`${routes[currentPageIndex - 1].path}`)
+      }
       return isLeftSwipe ? navigate(`${routes[currentPageIndex - 1].path}`) : navigate(`${routes[currentPageIndex + 1].path}`)
     }
   };
