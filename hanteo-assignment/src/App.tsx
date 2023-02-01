@@ -1,17 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Category from './components/Category/Category';
-import Chart from './components/Category/Chart/Chart';
+import { routes } from './routes';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Category />,
-  },
-  {
-    path: '/chart',
-    element: <Chart />
-  }
-])
+const router = createBrowserRouter(routes);
 
 const App = () => {
   return (
