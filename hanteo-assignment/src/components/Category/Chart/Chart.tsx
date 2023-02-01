@@ -1,5 +1,5 @@
 import Carousel from 'react-material-ui-carousel';
-import CarouselChart from './CarouselChart';
+import Banner from './Banner';
 import Contents from './Contents';
 
 const Chart = (props) => {
@@ -32,7 +32,7 @@ const Chart = (props) => {
         swipe={true}
       >
         {
-          items.map((item, i) => <CarouselChart key={i} item={item} />)
+          items.map((item, i) => <Banner key={i} item={item} />)
         }
       </Carousel>
       <Contents />

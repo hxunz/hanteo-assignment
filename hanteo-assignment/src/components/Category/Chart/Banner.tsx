@@ -1,11 +1,10 @@
-import { Paper } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
-const CarouselChart = (props) => {
+const Banner = (props) => {
   return (
     <Link to={props.item.url} target='_blank' style={{ textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Card sx={{ width: 500, height: 300 }}>
@@ -26,4 +25,4 @@ const CarouselChart = (props) => {
   )
 };
 
-export default CarouselChart;
+export default Banner;
