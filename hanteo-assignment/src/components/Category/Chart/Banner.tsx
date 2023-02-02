@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 const Banner = (props) => {
   return (
-    <Link to={props.item.url} target='_blank' style={{ textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <Card sx={{ width: 500, height: 300 }}>
+    <Link to={props.item.url} target='_blank' style={{ textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <Card sx={{ width: 500, height: 320 }}>
         <CardMedia
           sx={{ height: 200 }}
           image={props.item.img}
