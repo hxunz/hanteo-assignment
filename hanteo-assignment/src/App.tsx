@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Category from './components/Category/Category';
+import Category from './components/category/Category';
 import { routes } from './routes';
 
 import store from './redux/store'
