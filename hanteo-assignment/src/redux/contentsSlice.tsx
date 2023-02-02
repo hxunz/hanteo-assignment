@@ -3,30 +3,16 @@ import { getContents } from '../service/contents';
 import { AppDispatch } from './store';
 
 export interface Content {
-  userId: number;
   id: number;
-  title: string;
-  body: string;
-}
-
-export interface Pagination {
-  totalPages: number;
-  page: number,
-  size: number,
+  url: string;
 }
 
 export interface contentsState {
   contents: Content[];
-  pagination: Pagination;
 }
 
 export const initialState: contentsState = {
   contents: [],
-  pagination: {
-    totalPages: 1,
-    page: 1,
-    size: 1,
-  }
 }
 
 const { actions, reducer } = createSlice({
@@ -35,7 +21,7 @@ const { actions, reducer } = createSlice({
   reducers: {
     setContents: (state, { payload }) => ({
       ...state,
-      contents: payload,
+      contents: [...state.contents, ...payload],
     }),
   }
 })
@@ -55,6 +41,5 @@ export function loadContents() {
     }
   }
 }
-
 
 export default reducer;
