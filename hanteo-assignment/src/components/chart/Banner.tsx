@@ -17,12 +17,9 @@ type Props = {
 const Banner: React.FC<Props> = ({ item }) => {
   return (
     <BannerContainer>
-      <Card sx={{ width: 500, height: 320 }}>
+      <BannerCard>
         <BannerLink to={item.url} target='_blank'>
-          <CardMedia
-            sx={{ height: 200 }}
-            image={item.img}
-          />
+          <BannerImg image={item.img} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" >
               {item.name}
@@ -32,7 +29,7 @@ const Banner: React.FC<Props> = ({ item }) => {
             </Typography>
           </CardContent>
         </BannerLink>
-      </Card>
+      </BannerCard>
     </BannerContainer>
   )
 };
@@ -43,9 +40,18 @@ const BannerContainer = styled.div`
   align-items: center;
 `
 
+const BannerCard = styled(Card)`
+  width: 500px;
+  height: 320px;
+`
+
 const BannerLink = styled(Link)`
   text-decoration: none;
   color: black;
+`
+
+const BannerImg = styled(CardMedia)`
+  height: 200px;
 `
 
 export default Banner;

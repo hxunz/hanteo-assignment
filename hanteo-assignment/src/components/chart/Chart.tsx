@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import Carousel from 'react-material-ui-carousel';
 import Banner from './Banner';
 import Contents from './Contents';
@@ -26,18 +27,21 @@ const Chart = () => {
 
   return (
     <>
-      <Carousel
-        sx={{ mt: 13, mb: 3 }}
+      <BannerWrapper
         autoPlay={true}
         swipe={true}
       >
         {
           items.map((item, i) => <Banner key={i} item={item} />)
         }
-      </Carousel>
+      </BannerWrapper>
       <Contents />
     </>
   )
 };
+
+const BannerWrapper = styled(Carousel)`
+  margin: 104px 0 24px;
+`
 
 export default Chart;
