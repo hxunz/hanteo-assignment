@@ -3,7 +3,7 @@ import { Box, CircularProgress, Grid, Paper, Typography } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { loadContents } from 'src/redux/contentsSlice';
-import Swiper from './Swiper';
+import Swiper from '../../hooks/useSwiper';
 
 const Contents = () => {
   const dispatch = useAppDispatch();
