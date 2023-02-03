@@ -1,35 +1,40 @@
 import styled from '@emotion/styled';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import { Link, useLocation } from 'react-router-dom';
+import { router } from 'src/routes';
 
 function Category() {
+  const location = useLocation();
+
   return (
     <>
       <AppBar>
-        <Box sx={{ display: 'flex', backgroundColor: '#FFB0B2' }}>
-          <Button sx={{ my: 2, color: 'white' }} href='/chart'>
-            차트
-          </Button>
-          <Button sx={{ my: 2, color: 'white' }} href='/Whook'>
-            Whook
-          </Button>
-          <Button sx={{ my: 2, color: 'white' }} href='/event'>
-            이벤트
-          </Button>
-          <Button sx={{ my: 2, color: 'white' }} href='/news'>
-            뉴스
-          </Button>
-          <Button sx={{ my: 2, color: 'white' }} href='/store'>
-            스토어
-          </Button>
-        </Box>
+        <CategoryBox>
+          {router.map(({
+            path,
+            name
+          }) => (
+            <Categories to={path} isActive={location.pathname === `${path}`}>
+              {name}
+            </Categories>
+          ))}
+        </CategoryBox>
       </AppBar>
     </>
   );
 }
 
-const CustomButton = styled(Button)`
-
+const CategoryBox = styled(Box)`
+  display: flex;
+  background-color: #FFB0B2;
 `
+
+const Categories = styled(Link) <{ isActive: boolean }>`
+  color: ${props => props.isActive ? 'white' : 'black'};
+  text-decoration: none;
+  font-weight: bold;
+  margin: 2rem 0 1rem 2rem;
+`
+
 export default Category;
