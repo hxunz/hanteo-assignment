@@ -4,20 +4,29 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
-const Banner = (props) => {
+type Props = {
+  item: {
+    url: string,
+    img: string,
+    name: string,
+    description: string,
+  };
+}
+
+const Banner: React.FC<Props> = ({ item }) => {
   return (
-    <Link to={props.item.url} target='_blank' style={{ textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <Link to={item.url} target='_blank' style={{ textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Card sx={{ width: 500, height: 320 }}>
         <CardMedia
           sx={{ height: 200 }}
-          image={props.item.img}
+          image={item.img}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {props.item.name}
+            {item.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {props.item.description}
+            {item.description}
           </Typography>
         </CardContent>
       </Card>

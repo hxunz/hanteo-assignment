@@ -2,7 +2,7 @@ import Carousel from 'react-material-ui-carousel';
 import Banner from './Banner';
 import Contents from './Contents';
 
-const Chart = (props) => {
+const Chart = () => {
   const items = [
     {
       name: '[M COUTDOWN] 10월 2주차 엠카 사전 투표',
