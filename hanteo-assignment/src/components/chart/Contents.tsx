@@ -1,37 +1,13 @@
 import styled from '@emotion/styled';
 import { Box, CircularProgress, Grid, Paper, Typography } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'src/hooks';
-import { loadContents } from 'src/redux/contentsSlice';
+import { useAppSelector } from 'src/hooks';
+import useObserver from 'src/hooks/useObserver';
 import Swiper from '../../hooks/useSwiper';
 
 const Contents = () => {
-  const dispatch = useAppDispatch();
-
   const { contents } = useAppSelector(store => store.contents);
 
-  const [isLoading, setLoading] = useState(false);
-
-  const target = useRef(null);
-
-  const callback = async () => {
-    setLoading(true);
-    await dispatch(loadContents());
-    setLoading(false)
-  };
-
-  useEffect(() => {
-    let observer;
-    if (target.current) {
-      observer = new IntersectionObserver(callback, options);
-      observer.observe(target.current);
-    }
-    return () => observer && observer.disconnect();
-  }, [target]);
-
-  const options = {
-    threshold: 1.0
-  };
+  const { target, isLoading } = useObserver();
 
   return (
     <Swiper>
@@ -39,36 +15,55 @@ const Contents = () => {
       {contents.map(({
         url,
       }, index) => (
-        <Box sx={{ overflow: 'hidden', px: 3 }}>
-          <Paper
-            sx={{
-              my: 1,
-              p: 2,
-            }}
-          >
+        <ContentWrapper>
+          <ContentContainer>
             <Grid container wrap="nowrap" spacing={2}>
               <Grid item>
-                <img src={url} style={{ width: 100, height: 100, objectFit: 'cover', borderRadius: '20px' }} />
+                <Thumbnail src={url} />
               </Grid>
               <Grid item xs zeroMinWidth>
                 <Typography noWrap key={index}>{index + 1}</Typography>
               </Grid>
             </Grid>
-          </Paper>
-        </Box>
+          </ContentContainer>
+        </ContentWrapper>
       ))}
-      <div ref={target}>
+      <LoadingProgress ref={target}>
         {isLoading && <CircularProgress />}
-      </div>
+      </LoadingProgress>
     </Swiper>
   )
 };
+
+const ContentWrapper = styled(Box)`
+  overflow: hidden;
+  padding: 0 24px;
+`;
+
+const ContentContainer = styled(Paper)`
+  margin: 8px 0;
+  padding: 16px;
+  border-radius: 20px;
+`
 
 const ChartName = styled.div`
   align-items: center;
   display: flex;
   font-size: 1.5rem;
   font-weight: 700;
+`;
+
+const Thumbnail = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 20px;
+`
+
+const LoadingProgress = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export default Contents;
