@@ -5,26 +5,39 @@ import EventPage from 'src/pages/event';
 import NewsPage from 'src/pages/news';
 import StorePage from 'src/pages/store';
 
-export const routes = [
+export const routes = {
+  chart: '/chart',
+  whook: '/whook',
+  event: '/event',
+  news: '/news',
+  store: '/store',
+}
+
+export const router = [
   {
-    path: '/chart',
-    element: <ChartPage />
+    path: routes.chart,
+    element: <ChartPage />,
+    name: '차트'
   },
   {
-    path: '/whook',
-    element: <WhookPage />
+    path: routes.whook,
+    element: <WhookPage />,
+    name: 'whook'
   },
   {
-    path: '/event',
-    element: <EventPage />
+    path: routes.event,
+    element: <EventPage />,
+    name: 'event'
   },
   {
-    path: '/news',
-    element: <NewsPage />
+    path: routes.news,
+    element: <NewsPage />,
+    name: 'news'
   },
   {
-    path: '/store',
-    element: <StorePage />
+    path: routes.store,
+    element: <StorePage />,
+    name: 'store'
   },
   {
     path: '*',

@@ -1,6 +1,6 @@
 import { TouchEventHandler, PropsWithChildren, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { routes } from 'src/routes';
+import { router } from 'src/routes';
 
 const minSwipeDistance = 50;
 
@@ -18,7 +18,7 @@ const Swiper = ({ children }: PropsWithChildren) => {
 
   const onTouchMove: TouchEventHandler<HTMLElement> = (e) => setTouchEnd(e.targetTouches[0].clientX);
 
-  const currentPageIndex = routes.findIndex((it) => it.path === location.pathname);
+  const currentPageIndex = router.findIndex((it) => it.path === location.pathname);
 
   const onTouchEnd: TouchEventHandler<HTMLElement> = () => {
     if (!touchStart || !touchEnd) return;
@@ -27,12 +27,12 @@ const Swiper = ({ children }: PropsWithChildren) => {
     const rightSwipe = distance < -minSwipeDistance;
     if (leftSwipe || rightSwipe) {
       if (currentPageIndex === 0 && rightSwipe) {
-        return navigate(`${routes[currentPageIndex + 1].path}`)
+        return navigate(`${router[currentPageIndex + 1].path}`)
       }
-      if (currentPageIndex === routes.length - 1 && leftSwipe) {
-        return navigate(`${routes[currentPageIndex - 1].path}`)
+      if (currentPageIndex === router.length - 1 && leftSwipe) {
+        return navigate(`${router[currentPageIndex - 1].path}`)
       }
-      return leftSwipe ? navigate(`${routes[currentPageIndex - 1].path}`) : navigate(`${routes[currentPageIndex + 1].path}`)
+      return leftSwipe ? navigate(`${router[currentPageIndex - 1].path}`) : navigate(`${router[currentPageIndex + 1].path}`)
     }
   };
 
