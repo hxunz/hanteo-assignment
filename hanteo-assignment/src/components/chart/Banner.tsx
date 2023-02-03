@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -15,9 +16,9 @@ type Props = {
 
 const Banner: React.FC<Props> = ({ item }) => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <BannerContainer>
       <Card sx={{ width: 500, height: 320 }}>
-        <Link to={item.url} target='_blank' style={{ textDecoration: 'none', color: 'black' }}>
+        <BannerLink to={item.url} target='_blank'>
           <CardMedia
             sx={{ height: 200 }}
             image={item.img}
@@ -30,10 +31,21 @@ const Banner: React.FC<Props> = ({ item }) => {
               {item.description}
             </Typography>
           </CardContent>
-        </Link>
+        </BannerLink>
       </Card>
-    </div>
+    </BannerContainer>
   )
 };
+
+const BannerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const BannerLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`
 
 export default Banner;
