@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { Box, CircularProgress, Grid, Paper, Typography } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
-import { loadContents } from '../../../redux/contentsSlice';
+import { useAppDispatch, useAppSelector } from 'src/hooks/hooks';
+import { loadContents } from 'src/redux/contentsSlice';
 import Swiper from './Swiper';
 
 const Contents = () => {
@@ -11,7 +11,7 @@ const Contents = () => {
   const { contents } = useAppSelector(store => store.contents);
 
   const [isLoading, setLoading] = useState(false);
-  
+
   const target = useRef(null);
 
   const callback = async () => {

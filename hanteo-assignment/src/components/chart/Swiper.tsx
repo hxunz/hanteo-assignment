@@ -1,6 +1,6 @@
 import { TouchEventHandler, PropsWithChildren, useState } from 'react';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { routes } from '../../../routes';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { routes } from 'src/routes';
 
 const minSwipeDistance = 50;
 

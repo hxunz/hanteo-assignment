@@ -1,8 +1,8 @@
-import Chart from '../components/category/chart/Chart';
-import Event from '../components/category/event/Event';
-import News from '../components/category/news/News';
-import Store from '../components/category/store/Store';
-import Whook from '../components/category/whook/Whook';
+import Chart from 'src/components/chart/Chart';
+import Event from 'src/components/event/Event';
+import News from 'src/components/news/News';
+import Store from 'src/components/store/Store';
+import Whook from 'src/components/whook/Whook';
 
 export const routes = [
   {

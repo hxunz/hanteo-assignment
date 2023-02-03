@@ -1,15 +1,19 @@
+import styled from '@emotion/styled';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 function Category() {
   return (
     <>
       <AppBar>
         <Box sx={{ display: 'flex', backgroundColor: '#FFB0B2' }}>
+          {/* <Link to={'/chart'}> */}
           <Button sx={{ my: 2, color: 'white' }} href='/chart'>
             차트
           </Button>
+          {/* </Link> */}
           <Button sx={{ my: 2, color: 'white' }} href='/Whook'>
             Whook
           </Button>
@@ -27,4 +31,8 @@ function Category() {
     </>
   );
 }
+
+const CustomButton = styled(Button)`
+  
+`
 export default Category;

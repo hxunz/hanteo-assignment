@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getContents } from '../service/contents';
+import { getContents } from 'src/service/contents';
 import { AppDispatch } from './store';
 
 export interface Content {

@@ -1,5 +1,5 @@
-import { mockContents } from '../mockContents';
-import { Content } from '../redux/contentsSlice';
+import { mockContents } from 'src/mockContents';
+import { Content } from 'src/redux/contentsSlice';
 
 export const getContents = async () => {
   try {

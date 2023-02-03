@@ -1,4 +1,4 @@
-import Swiper from '../chart/Swiper';
+import Swiper from 'src/components/chart/Swiper';
 
 const Store = () => {
   return (
