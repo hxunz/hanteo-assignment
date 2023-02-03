@@ -1,9 +1,10 @@
 import Swiper from 'src/hooks/useSwiper';
+import { ContentContainer } from 'src/styles/content';
 
 const News = () => {
   return (
     <Swiper>
-      <div style={{ marginTop: 80 }}>News</div>
+      <ContentContainer>News</ContentContainer>
     </Swiper>
   )
 };

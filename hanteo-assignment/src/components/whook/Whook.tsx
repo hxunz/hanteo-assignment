@@ -1,9 +1,10 @@
 import Swiper from 'src/hooks/useSwiper';
+import { ContentContainer } from 'src/styles/content';
 
 const Whook = () => {
   return (
     <Swiper>
-      <div style={{ marginTop: 80 }}>Whook</div>
+      <ContentContainer>Whook</ContentContainer>
     </Swiper >
   )
 };
