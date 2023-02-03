@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import { TouchEventHandler, PropsWithChildren, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { router } from 'src/routes';
@@ -37,13 +38,18 @@ const Swiper = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <div
-      style={{ backgroundColor: '#ebebeb' }}
-      onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
+    <SwiperContainer
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       {children}
-    </div>
+    </SwiperContainer>
   )
 };
+
+const SwiperContainer = styled.div`
+  background-color: #ebebeb;
+`
 
 export default Swiper;
