@@ -28,7 +28,7 @@ const Chart = () => {
     <>
       <Carousel
         sx={{ mt: 13, mb: 3 }}
-        autoPlay={false}
+        autoPlay={true}
         swipe={true}
       >
         {
