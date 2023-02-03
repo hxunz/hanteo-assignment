@@ -15,22 +15,24 @@ type Props = {
 
 const Banner: React.FC<Props> = ({ item }) => {
   return (
-    <Link to={item.url} target='_blank' style={{ textDecoration: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Card sx={{ width: 500, height: 320 }}>
-        <CardMedia
-          sx={{ height: 200 }}
-          image={item.img}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {item.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {item.description}
-          </Typography>
-        </CardContent>
+        <Link to={item.url} target='_blank' style={{ textDecoration: 'none', color: 'black' }}>
+          <CardMedia
+            sx={{ height: 200 }}
+            image={item.img}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div" >
+              {item.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {item.description}
+            </Typography>
+          </CardContent>
+        </Link>
       </Card>
-    </Link>
+    </div>
   )
 };
 
