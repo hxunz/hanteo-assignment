@@ -1,30 +1,30 @@
-import Chart from 'src/components/chart/Chart';
-import Event from 'src/components/event/Event';
-import News from 'src/components/news/News';
-import Store from 'src/components/store/Store';
-import Whook from 'src/components/whook/Whook';
-import Home from 'src/pages/Home';
+import WhookPage from 'src/components/whook/Whook';
+import Home from 'src/pages';
+import ChartPage from 'src/pages/chart';
+import EventPage from 'src/pages/event';
+import NewsPage from 'src/pages/news';
+import StorePage from 'src/pages/store';
 
 export const routes = [
   {
     path: '/chart',
-    element: <Chart />
+    element: <ChartPage />
   },
   {
     path: '/whook',
-    element: <Whook />
+    element: <WhookPage />
   },
   {
     path: '/event',
-    element: <Event />
+    element: <EventPage />
   },
   {
     path: '/news',
-    element: <News />
+    element: <NewsPage />
   },
   {
     path: '/store',
-    element: <Store />
+    element: <StorePage />
   },
   {
     path: '*',

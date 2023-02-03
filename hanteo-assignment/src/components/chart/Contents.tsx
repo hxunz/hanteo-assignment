@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Box, CircularProgress, Grid, Paper, Typography } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'src/hooks/hooks';
+import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { loadContents } from 'src/redux/contentsSlice';
 import Swiper from './Swiper';
 
@@ -69,13 +69,6 @@ const ChartName = styled.div`
   display: flex;
   font-size: 1.5rem;
   font-weight: 700;
-`
-
-const Image = styled.img`
-width: 100;
-height: 100;
-object-fit: cover;
-border-radius: 20px;
 `
 
 export default Contents;
