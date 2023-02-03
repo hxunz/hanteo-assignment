@@ -1,9 +1,13 @@
+import Footer from 'src/components/footer/Footer';
 import Whook from 'src/components/whook/Whook'
 
 const WhookPage = () => {
   return (
-    <Whook />
+    <>
+      <Whook />
+      <Footer />
+    </>
   )
 };
 
-export default Whook;
+export default WhookPage;
