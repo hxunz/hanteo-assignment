@@ -7,6 +7,14 @@ import { router } from 'src/routes';
 function Category() {
   const location = useLocation();
 
+  const handleClickCategory = () => {
+    scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
   return (
     <>
       <AppBar>
@@ -15,7 +23,11 @@ function Category() {
             path,
             name
           }) => (
-            <Categories to={path} isActive={location.pathname === `${path}`}>
+            <Categories
+              to={path}
+              isActive={location.pathname === `${path}`}
+              onClick={handleClickCategory}
+            >
               {name}
             </Categories>
           ))}
